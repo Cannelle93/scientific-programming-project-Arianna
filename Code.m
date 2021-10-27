@@ -1,6 +1,6 @@
 % Arianna Lamanna
 % 27/10/2021
-% schientific programming project 
+% scientific programming project 
 % Influence of peripartum mother stress on gene expression of stickleback fishes offspring 
 % https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.30ns8
 
