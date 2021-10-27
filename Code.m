@@ -1,12 +1,19 @@
+% Arianna Lamanna
+% 27/10/2021
+% schientific programming project 
+% Influence of peripartum mother stress on gene expression of stickleback fishes offspring 
+% https://datadryad.org/stash/dataset/doi:10.5061%2Fdryad.30ns8
 
+
+%% loading the Dataset
 load('Data')
 
 %% Cleaning the Dataset
-% since the data represents genes expression, i decided to delete the
+% since the data represents genes expression, I decided to delete the
 % missing values (zeros). In fact a zero value means that the gene hasn't
 % been expressed in that specific tissue (brain).
 
-%delete missing data 
+%delete missing values 
 x=1;
 
 for i = 1:size(geneEx,2)
@@ -246,7 +253,7 @@ idx = find(cumsum(explained)>= exVar,1);
 bootstrapPCA= score(:,1:idx);
  
 % PCA plot
-figure(6)
+figure(5)
 plot(score(1:60,1),score(1:60,2),'bo'),hold on,
 plot(score(61:120,1),score(61:120,2),'ro'),
 plot(score(121:180,1),score(121:180,2),'b+'),
@@ -274,7 +281,7 @@ idx = find(cumsum(explained)>= exVar,1);
 bootstrapPCA2= score(:,1:idx);
  
 % PCA plot
-figure (5)
+figure (6)
 plot(score(1:120,1),score(1:120,2),'go'),hold on,
 plot(score(121:240,1),score(121:240,2),'g+'),
 legend('U','S')
@@ -451,7 +458,7 @@ HY= GeneIDN(Total);
 HX= ['SM';'BM';'SF';'BF';'SA';'BA';'ST';'BT'];
 HData = [adjustedP_SM(Total);adjustedP_BM(Total);adjustedP_SF(Total);adjustedP_BF(Total);adjustedP_TSGS(Total);adjustedP_BTGS(Total);adjustedP_ST(Total);adjustedP_BT(Total)]
 HData = log(HData')
-%recentering HData
+% centering HData
 meanHDATA = mean(HData,2)
 HData= HData- meanHDATA
 h = heatmap(HX,HY,HData,'Title','Heatmap','Colormap',parula);
@@ -461,7 +468,7 @@ h = heatmap(HX,HY,HData,'Title','Heatmap','Colormap',parula);
 % HX= ['SM';'SF';'SA';'ST'];
 % HData = [adjustedP_SM(TotalS);adjustedP_SF(TotalS);adjustedP_TSGS(TotalS);adjustedP_ST(TotalS)]
 % HData = log(HData')
-% %recentering HData
+% %centering HData
 % meanHDATA = mean(HData,2)
 % HData= HData- meanHDATA
 % h = heatmap(HX,HY,HData,'Title','HeatmapS','Colormap',parula);
@@ -472,7 +479,7 @@ h = heatmap(HX,HY,HData,'Title','Heatmap','Colormap',parula);
 % HX= ['BM';'BF';'BA';'BT'];
 % HData = [adjustedP_BM(TotalB);adjustedP_BF(TotalB);adjustedP_BTGS(TotalB);adjustedP_BT(TotalB)]
 % HData = log(HData');
-% %recentering HData
+% %centering HData
 % meanHDATA = mean(HData,2)
 % HData= HData- meanHDATA
 % h = heatmap(HX,HY,HData,'Title','HeatmapB','Colormap',parula);
@@ -484,7 +491,7 @@ exVar=99;% Explained Variance
 idx = find(cumsum(explained)>= exVar,1);
 SmotePCA= score(:,1:idx);
 
- figure(11)
+ figure(7)
 biplot(coeff(SM,1:2),'Scores',score(1:60,1:2),'Color','b','Marker','o','VarLabels',GeneIDN(SM)), hold on
 biplot(coeff(SF,1:2),'Scores',score(61:120,1:2),'Color','r','Marker','o','VarLabels',GeneIDN(SF)), hold on
 biplot(coeff(SM,1:2),'Scores',score(121:180,1:2),'Color','b','Marker','+'), hold on
