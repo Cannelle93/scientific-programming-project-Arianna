@@ -41,7 +41,7 @@ idx = find(cumsum(explained)>= exVar,1);
 PCAData = score(:,1:idx);
 
 
-%% PCA plots
+%% PCA plot
 figure(2)
 plot(score(1:3,1),score(1:3,2),'bo'),hold on,
 plot(score(4:6,1),score(4:6,2),'ro'),
@@ -111,7 +111,7 @@ exVar=99;% Explained Variance
 idx = find(cumsum(explained)>= exVar,1);
 SmotePCA= score(:,1:idx);
 
-% PCA plots
+% PCA plot
 
 % figure(3)
 % plot3(score(1:60,1),score(1:60,2),score(1:60,4),'bo'),hold on,
@@ -491,6 +491,6 @@ biplot(coeff(SM,1:2),'Scores',score(121:180,1:2),'Color','b','Marker','+'), hold
 biplot(coeff(SF,1:2),'Scores',score(181:240,1:2),'Color','r','Marker','+'), hold off
 
 
-% Biplot is difficult to interprete since the under rspectively the over
+% Biplot is difficult to interprete since the under respectively the over
 % expressed genes are still too many and due to the smote technic the
 % samples of the same class are quasi alined in the biplot
